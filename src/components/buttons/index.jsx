@@ -32,7 +32,7 @@ function Button({ grow, variant, className, disabled, children, href, loading, s
     return (
         <Tag {...restProps} className={classNames(
             'rounded-md ',
-            VARIANT_TO_BTN[vargit remote iant],
+            VARIANT_TO_BTN[variant],
             {
                 'w-full': grow
             },
