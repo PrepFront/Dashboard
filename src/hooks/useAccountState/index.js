@@ -8,12 +8,10 @@ const tokens = getItemFromStorage(Keys.storageKey)
 let accountDetails = null
 
 if (tokens) {
-    try {
-        const { data } = await getUserDetails(tokens)
-        accountDetails = data
-    } catch (e) {
-        console.log(e)
-    }
+    getUserDetails(tokens)
+        .then(({ data }) => {
+            accountDetails = data
+        })
 }
 
 export default function () {
@@ -29,8 +27,8 @@ export default function () {
         }
     }
 
-    const deleteUser = ()=>{
-        setItemIntoStorage(Keys.storageKey,null)
+    const deleteUser = () => {
+        setItemIntoStorage(Keys.storageKey, null)
         setUser(null)
     }
 
