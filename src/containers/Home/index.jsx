@@ -9,7 +9,7 @@ import ImportantResources from '../ImportantResources'
 import NonTechnicalResources from '../NonTechnicalResources'
 import TechnicalResources from '../TechnicalResources'
 
-export default function Home({ user }) {
+export default function Home() {
 
   const [collapsed, setCollapsed] = useState(false)
   const [activeIndex, setActiveIndex] = useState(1)
@@ -29,13 +29,13 @@ export default function Home({ user }) {
         navigate={navigate}
       />
       <div className='flex grow flex-col'>
-        <NavBar collapsable={collapsed} setCollapse={setCollapsed} user={user} navigate={navigate}/>
+        <NavBar collapsable={collapsed} setCollapse={setCollapsed} navigate={navigate}/>
         <Routes>
           {
             TABS.map((tab, ind) => (
               <Route
                 key={ind}
-                element={<tab.component user={user} />}
+                element={<tab.component />}
                 path={tab.path}
                 navigate={navigate}
                 index={ind === activeIndex}

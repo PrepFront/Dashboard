@@ -7,12 +7,15 @@ import Box from '../../components/box'
 import Button from '../../components/buttons'
 import Form from '../../components/form'
 import Text from '../../components/text'
+import { useAppContext } from '../../hooks/context'
 
-export function Login({ user: { saveUser: onLogin }, navigate }) {
+export function Login({ navigate }) {
 
   const { register, watch } = useForm({
     mode: 'onChange',
   })
+
+  const { saveUser: onLogin } = useAppContext()
 
   const userDetails = watch()
 

@@ -9,8 +9,10 @@ import { capitalize } from 'lodash'
 import { FaSignOutAlt } from 'react-icons/fa'
 import { AiTwotoneSetting } from 'react-icons/ai'
 import { toast } from 'react-hot-toast'
+import { useAppContext } from '../../hooks/context'
 
-export default function NavBar({ collapsable, setCollapse, user, navigate }) {
+export default function NavBar({ collapsable, setCollapse, navigate }) {
+    const { user, deleteUser } = useAppContext()
     return (
         <nav className='h-16 w-full bg-primary relative flex justify-between items-center px-4'>
             <div
@@ -26,9 +28,9 @@ export default function NavBar({ collapsable, setCollapse, user, navigate }) {
                 <GiHamburgerMenu size={25} />
             </div>
             <DropDown Button={DropDownButton} Item={DropDownItem} itemsProps={{
-                user: user.user,
+                user: user,
                 functions: {
-                    onDelete: user.deleteUser,
+                    onDelete: deleteUser,
                 },
                 navigate: navigate
             }} />
@@ -50,13 +52,13 @@ function DropDownItem({ user, functions }) {
         <div className=' w-48 bg-white m-1'>
             <div className='w-full h-max flex justify-center items-center flex-col pt-10'>
                 <RiAccountCircleFill size={60} />
-                <Text.Heading>{capitalize(user.full_name)}</Text.Heading>
+                <Text.Heading>{capitalize(user?.full_name)}</Text.Heading>
                 {
                     ACCOUNT_BUTTONS.map((item) => {
                         return (
                             <div
                                 className='w-full py-2 rounded-lg px-8 text-sm flex items-center justify-center transition-all duration-300 ease-in-out cursor-pointer hover:bg-opacity-10 bg-primary bg-opacity-5 first:mt-0 mt-1'
-                                onClick={()=>item.onClick(functions)}
+                                onClick={() => item.onClick(functions)}
                                 key={item.name}
                             >
                                 <div className='flex items-center justify-center'>
@@ -85,10 +87,9 @@ const ACCOUNT_BUTTONS = [
         name: 'sign_out',
         label: 'SignOut',
         icon: FaSignOutAlt,
-        onClick: ({onDelete,navigate}) => {
+        onClick: ({ onDelete }) => {
             onDelete()
             toast.success('You are now logged out!')
-            navigate('/')
         }
     }
 ]
