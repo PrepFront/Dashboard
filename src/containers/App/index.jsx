@@ -25,12 +25,12 @@ export default function AppRoot() {
       />
       <Route
         path='/signup'
-        element={<SignUp user={user} navigate={navigate}/>}
+        element={<SignUp navigate={navigate}/>}
       />
       <Route
         index
-        path='/'
-        element={<Home user={user} navigate={navigate}/>}
+        path='*'
+        element={<Home user={user}/>}
       />
     </Routes>
   )
