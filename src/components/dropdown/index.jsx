@@ -22,7 +22,7 @@ function DropDown({ Button, Item, buttonClassName, itemsClassName, buttonProps, 
                 leaveTo="transform opacity-0 scale-95"
             >
                 <Menu.Items className={classNames(
-                    "absolute right-0 mt-3 w-max origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none",
+                    "absolute right-0 mt-3 w-max z-50 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none",
                     itemsClassName
                 )}>
                     <Item {...itemsProps} {...commonProps}/>

@@ -6,10 +6,15 @@ import Loader from './components/loader'
 import AppRoot from './containers/App'
 import { useAppContext } from './hooks/context'
 import { getItemFromStorage } from './utils/native'
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 const tokens = getItemFromStorage(keys.storageKey)
+const queryClient = new QueryClient()
 
 export default function App() {
+
+  console.log(process)
 
   const [loading, setLoading] = useState(false)
   const { saveUser } = useAppContext()
@@ -26,9 +31,14 @@ export default function App() {
   }
 
   return (
-    <BrowserRouter>
-      <AppRoot />
-      <Toaster />
-    </BrowserRouter>
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <AppRoot />
+        <Toaster />
+      </BrowserRouter>
+      {
+        process.env.NODE_ENV === 'development' && <ReactQueryDevtools/>
+      }
+    </QueryClientProvider>
   )
 }

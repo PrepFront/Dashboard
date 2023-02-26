@@ -4,8 +4,9 @@ import { PulseLoader } from 'react-spinners'
 
 const VARIANT_TO_BTN = {
     outline: 'border border-primary border-1 text-primary',
-    solid: 'bg-primary text-white',
-    text: '',
+    solid: 'bg-primary text-white bg-opacity-95 hover:bg-opacity-100',
+    text: 'bg-primary bg-opacity-5 text-primary hover:bg-opacity-10',
+    danger: 'bg-red-600 hover:bg-red-700 text-white'
 }
 
 const DISABLED_BTN_STYLE = {
@@ -31,7 +32,7 @@ function Button({ grow, variant, className, disabled, children, href, loading, s
     }
     return (
         <Tag {...restProps} className={classNames(
-            'rounded-md ',
+            'rounded-md transition-all duration-300 ease-in-out',
             VARIANT_TO_BTN[variant],
             {
                 'w-full': grow
@@ -40,7 +41,8 @@ function Button({ grow, variant, className, disabled, children, href, loading, s
             {
                 'cursor-not-allowed opacity-50': disabled,
             },
-            disabled ? DISABLED_BTN_STYLE[variant] : ''
+            disabled ? DISABLED_BTN_STYLE[variant] : '',
+            className
         )}>
             {loading ? (<PulseLoader color={VARIENT_TO_SPINNER[variant]} size={5} />) : (children)}
         </Tag>
