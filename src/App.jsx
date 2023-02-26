@@ -37,7 +37,7 @@ export default function App() {
         <Toaster />
       </BrowserRouter>
       {
-        process.env.NODE_ENV === 'development' && <ReactQueryDevtools/>
+        import.meta.env.NODE_ENV === 'development' && <ReactQueryDevtools/>
       }
     </QueryClientProvider>
   )
