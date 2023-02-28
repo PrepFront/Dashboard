@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { Route, Routes, useNavigate } from 'react-router-dom'
+import ScreenBlocker from '../../components/blockScreen'
 
 import { useAppContext } from '../../hooks/context'
 import Home from '../Home'
@@ -9,6 +10,10 @@ import SignUp from '../SignUp'
 export default function AppRoot() {
   const navigate = useNavigate()
   const { user } = useAppContext()
+
+  if (window.innerWidth < 1300) {
+    return <ScreenBlocker />
+  }
 
   useEffect(() => {
     if (!user) {
