@@ -1,7 +1,5 @@
 import api from './index'
 import URLS from '../constants/urls'
-import { getItemFromStorage } from "../utils/native"
-import Keys from '../constants/keys'
 
 export async function loginUser({ email, password }) {
     return await api.post(URLS.ROUTES.USER.LOGIN, { email, password })

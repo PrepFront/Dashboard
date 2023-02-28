@@ -1,4 +1,5 @@
-import { useState, useCallback } from 'react'
+import { useState } from 'react'
+
 import { getUserDetails } from '../../api/account'
 import Keys from '../../constants/keys'
 import { setItemIntoStorage } from "../../utils/native"

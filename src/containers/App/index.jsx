@@ -1,9 +1,7 @@
 import React, { useEffect } from 'react'
 import { Route, Routes, useNavigate } from 'react-router-dom'
-import Loader from '../../components/loader'
-import { useAppContext } from '../../hooks/context'
 
-import useAccountState from '../../hooks/useAccountState'
+import { useAppContext } from '../../hooks/context'
 import Home from '../Home'
 import { Login } from '../Login'
 import SignUp from '../SignUp'
@@ -13,7 +11,6 @@ export default function AppRoot() {
   const { user } = useAppContext()
 
   useEffect(() => {
-    console.log('user',user)
     if (!user) {
       navigate('/login')
     } else {

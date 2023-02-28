@@ -3,12 +3,13 @@ import React from 'react'
 import { GiHamburgerMenu } from 'react-icons/gi'
 import { RiAccountCircleFill } from 'react-icons/ri'
 import { IoIosArrowDown } from 'react-icons/io'
-import DropDown from '../dropdown'
-import Text from '../text'
 import { capitalize } from 'lodash'
 import { FaSignOutAlt } from 'react-icons/fa'
 import { AiTwotoneSetting } from 'react-icons/ai'
 import { toast } from 'react-hot-toast'
+
+import DropDown from '../dropdown'
+import Text from '../text'
 import { useAppContext } from '../../hooks/context'
 
 export default function NavBar({ collapsable, setCollapse, navigate }) {

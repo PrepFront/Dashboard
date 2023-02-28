@@ -1,7 +1,5 @@
 import React, { createContext, useContext, useEffect, useState } from 'react'
-import Loader from '../../components/loader';
-import keys from '../../constants/keys';
-import { getItemFromStorage } from '../../utils/native';
+
 import useAccountState from '../useAccountState';
 
 const AppContext = createContext();

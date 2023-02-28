@@ -1,6 +1,7 @@
 import classNames from 'classnames'
 import React from 'react'
 import { FiArrowLeftCircle } from 'react-icons/fi'
+
 import logo from '../../assets/logo.svg'
 
 

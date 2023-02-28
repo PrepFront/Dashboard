@@ -9,7 +9,7 @@ import Form from '../../components/form'
 import Text from '../../components/text'
 
 function SignUp({ navigate }) {
-  const { register, watch } = useForm({
+  const { register, watch, formState: { errors } } = useForm({
     mode: 'onChange',
   })
 
@@ -21,7 +21,7 @@ function SignUp({ navigate }) {
       toast.success('Signup successfull!! Now Login :)')
       navigate('/login')
     } catch(e){
-      toast.error('Kuchh toh gadbad hai')
+      toast.error('Some error occured. Try again later')
     }
   }
 

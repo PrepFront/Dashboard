@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Route, Routes, useNavigate } from 'react-router-dom'
-import NavBar from '../../components/navbar'
 
+import NavBar from '../../components/navbar'
 import SideBar from '../../components/sidebar'
 import Councelling from '../Councelling'
 import DCSSessions from '../DCSSessions'
@@ -28,7 +28,7 @@ export default function Home() {
         tabs={TABS}
         navigate={navigate}
       />
-      <div className='flex grow flex-col'>
+      <div className='flex flex-1 flex-col'>
         <NavBar collapsable={collapsed} setCollapse={setCollapsed} navigate={navigate}/>
         <Routes>
           {

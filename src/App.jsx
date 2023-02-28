@@ -14,8 +14,6 @@ const queryClient = new QueryClient()
 
 export default function App() {
 
-  console.log(process)
-
   const [loading, setLoading] = useState(false)
   const { saveUser } = useAppContext()
 
@@ -37,7 +35,7 @@ export default function App() {
         <Toaster />
       </BrowserRouter>
       {
-        import.meta.env.NODE_ENV === 'development' && <ReactQueryDevtools/>
+        process.env.NODE_ENV === 'development' && <ReactQueryDevtools/>
       }
     </QueryClientProvider>
   )

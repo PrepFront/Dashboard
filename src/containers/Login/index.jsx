@@ -26,7 +26,6 @@ export function Login({ navigate }) {
       toast.success('Login Successfull!!')
       navigate('/')
     } catch (e) {
-      console.log(e)
       toast.error('Something went Wrong. Check Email or Password')
     }
   }
