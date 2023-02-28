@@ -24,7 +24,6 @@ export function Login({ navigate }) {
       const { data } = await loginUser(userDetails)
       onLogin(data)
       toast.success('Login Successfull!!')
-      navigate('/')
     } catch (e) {
       toast.error('Something went Wrong. Check Email or Password')
     }
