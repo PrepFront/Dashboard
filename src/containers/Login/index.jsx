@@ -1,6 +1,7 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { toast } from 'react-hot-toast'
+import { BsFillShieldLockFill } from 'react-icons/bs'
 
 import { loginUser } from '../../api/account'
 import Box from '../../components/box'
@@ -29,13 +30,18 @@ export function Login({ navigate }) {
     }
   }
 
-  function handleSignUp(){
+  function handleSignUp() {
     navigate('/signup')
   }
 
   return (
     <div className='bg-secondry flex justify-center items-center w-full h-screen '>
       <Box className={'w-full h-screen md:w-96 md:h-max md:py-8 flex items-center justify-center flex-col'}>
+        <span className='w-full flex justify-center'>
+          <span className='bg-primary p-4 rounded-full'>
+            <BsFillShieldLockFill size={30} className='text-white' />
+          </span>
+        </span>
         <Text.Heading className={'text-center'}>Login</Text.Heading>
         <div className='w-full px-8'>
           <Form.Input placeholder='Email' type='email' {...register('email')} name='email' label="Email" />
@@ -47,6 +53,9 @@ export function Login({ navigate }) {
             handleLogin()
           }}>Login</Button>
         </div>
+        <span className='w-full px-8 flex justify-end items-center h-max mt-3'>
+          <a className='text-xs underline hover:text-blue-600' href='#'>Forgot password?</a>
+        </span>
       </Box>
     </div>
   )
