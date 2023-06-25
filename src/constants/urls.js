@@ -1,4 +1,4 @@
-export const BACKEND_LINK = 'https://api.jobcadet.com'
+export const BACKEND_LINK = 'https://prep-front-backend.onrender.com'
 export default {
     ROUTES: {
         SERVICES: {
